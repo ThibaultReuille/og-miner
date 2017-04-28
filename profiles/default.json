@@ -16,6 +16,8 @@
 
     "selenium" : {},
 
+    "elasticsearch" : {},
+
     "ssl" : {},
     
     "dns" : {
@@ -168,7 +170,7 @@
             "neighbors" :
             {
                 "ip -> port" : { "select" : "first", "size" : 5 },
-                "ip -> as" :   { "select" : "first", "size" : 5 } 
+                "ip -> asn" :   { "select" : "first", "size" : 5 } 
             }
         }
     }
