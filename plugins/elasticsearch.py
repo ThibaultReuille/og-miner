@@ -19,7 +19,7 @@ class Plugin(object):
             self.mappings = configuration["mappings"]
             self.client.indices.create(index=self.index, ignore=400, body= { "mappings" : self.mappings })
         else:
-            self.client.indices.create(index=self.index, ignore=400)            
+            self.client.indices.create(index=self.index, ignore=400)
 
     def process(self, profile, state, vertex):
         self.client.index(index=self.index, doc_type="vertex", body=vertex)

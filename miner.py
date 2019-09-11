@@ -75,7 +75,7 @@ def generator_from_zmq_pull(context, host):
         else:
             task = json.loads(message)
             yield task
- 
+
 if __name__ == "__main__":
 
     colorama.init()
@@ -127,7 +127,9 @@ if __name__ == "__main__":
 
     with open(args.config, "rU") as conf_file:
         try:
-            configuration = json.load(conf_file)
+            json_lines = conf_file.readlines()
+            json_lines = filter(lambda l: not l.lstrip().startswith('//'), json_lines)
+            configuration = json.loads("\n".join(json_lines))
         except Exception, e:
             print("[Error] Your configuration file seems corrupt!")
             print(colorama.Fore.RED + str(e) + colorama.Style.RESET_ALL)
@@ -313,7 +315,7 @@ if __name__ == "__main__":
     engine.start()
     print_line()
     engine.stop_workers()
-    
+
     # ------------------------------------------------------------------------
 
     if not args.no_output:
@@ -340,5 +342,5 @@ if __name__ == "__main__":
         print("Writing graph to '{0}' ...".format(args.output))
         with open(args.output, "w") as outfile:
             json.dump(data, outfile, indent=4, cls=core.encoder.Encoder)
- 
+
     print("Done.")

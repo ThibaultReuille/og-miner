@@ -40,14 +40,14 @@
             "name" : "selenium",
             "path" : "plugins/selenium.py"
         },
-        {
-            "name" : "elasticsearch",
-            "path" : "plugins/elasticsearch.py",
-            
-            "host" : "localhost",
-            "port" : 9200,
-            "index" : "feed"
-        },
+        // {
+        //     "name" : "elasticsearch",
+        //     "path" : "plugins/elasticsearch.py",
+
+        //     "host" : "localhost",
+        //     "port" : 9200,
+        //     "index" : "feed"
+        // },
         {
             "name" : "blacklist",
             "path" : "plugins/blacklist.py",
