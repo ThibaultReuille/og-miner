@@ -164,11 +164,11 @@ class Graph(core.graph.interface.Graph):
             vertex.update({ 'id' : key })
             graph['nodes'].append(vertex)
 
-        graph['edges'] = list()
+        graph['links'] = list()
         for key in sorted(self.__edges.keys()):
             edge = self.__edges[key]
-            edge.update({ 'src' : key[0], 'dst' : key[1] })
-            graph['edges'].append(edge)
+            edge.update({ 'source' : key[0], 'target' : key[1] })
+            graph['links'].append(edge)
 
         graph['tokens'] = list()
         for item in self.__tokens:
